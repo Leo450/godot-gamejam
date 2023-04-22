@@ -181,9 +181,11 @@ blend_point_0/pos = Vector2(-1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_rsjue")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_byadp")
-blend_point_2/pos = Vector2(0, 1)
+blend_point_2/pos = Vector2(0, 1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_u4etb")
-blend_point_3/pos = Vector2(0, -1)
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_imntq"]
@@ -204,9 +206,11 @@ blend_point_0/pos = Vector2(-1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_v4xhy")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_jkfr2")
-blend_point_2/pos = Vector2(0, 1)
+blend_point_2/pos = Vector2(0, 1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_e0612")
-blend_point_3/pos = Vector2(0, -1)
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y4qjp"]
@@ -231,6 +235,7 @@ radius = 3.0
 height = 10.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_kk82p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -254,6 +259,6 @@ parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Run/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qli3s")
