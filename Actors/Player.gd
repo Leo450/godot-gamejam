@@ -7,12 +7,13 @@ extends CharacterBody2D
 enum {
 	MOVE,
 	ATTACK,
-	CHANGE_TILE
+	CHANGE_MAP
 }
 
 var state = MOVE
 var input_vector = Vector2.ZERO
 var last_input_vector = Vector2.ZERO
+var timer = null
 
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
@@ -25,6 +26,7 @@ func _physics_process(delta):
 	match state:
 		MOVE: move_state(delta)
 		ATTACK: attack_state(delta)
+		CHANGE_MAP: change_map_state(delta)
 
 func move_state(delta):
 	input_to_velocity(delta)
@@ -41,6 +43,22 @@ func attack_state(delta):
 func _on_animation_tree_animation_finished(anim_name: String):
 	if anim_name.begins_with("Attack"):
 		state = MOVE
+
+func change_map_state(delta):
+	velocity = velocity.move_toward(last_input_vector * MAX_SPEED, ACCELERATION * delta)
+	move_and_slide()
+
+func change_map():
+	timer = Timer.new()
+	timer.connect("timeout", _on_change_map_state_end)
+	timer.wait_time = .25
+	timer.one_shot = true
+	add_child(timer)
+	timer.start()
+	state = CHANGE_MAP
+
+func _on_change_map_state_end():
+	state = MOVE
 
 func input_to_velocity(delta):
 	input_vector = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()

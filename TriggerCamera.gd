@@ -1,19 +1,12 @@
 extends Area2D
 
+@export var enabled = true
 @export var is_horizontal = true
 
 var can_trigger = true
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_body_entered(body):
-	if !can_trigger:
+	if !enabled || !can_trigger:
 		return
 		
 	can_trigger = false
@@ -23,6 +16,8 @@ func _on_body_entered(body):
 		direction.x = 0
 	else:
 		direction.y = 0
+	
+	body.change_map()
 	
 	Events.emit_signal("translate_camera", direction)
 	
