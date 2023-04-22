@@ -3028,6 +3028,78 @@ position = Vector2(96, 80)
 [node name="Grass2" parent="Props/Grass" instance=ExtResource("13_7gp31")]
 position = Vector2(176, 120)
 
+[node name="Grass68" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(259, 69)
+
+[node name="Grass73" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(274, 69)
+
+[node name="Grass69" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(214, 136)
+
+[node name="Grass74" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(434, 126)
+
+[node name="Grass75" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(448, 70)
+
+[node name="Grass76" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(503, -20)
+
+[node name="Grass77" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(429, -12)
+
+[node name="Grass120" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(429, -28)
+
+[node name="Grass80" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(326, -31)
+
+[node name="Grass81" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(272, -62)
+
+[node name="Grass82" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(272, -62)
+
+[node name="Grass110" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(98, -31)
+
+[node name="Grass111" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(44, -48)
+
+[node name="Grass112" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(44, -48)
+
+[node name="Grass113" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(40, -88)
+
+[node name="Grass114" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(137, 43)
+
+[node name="Grass115" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(134, -20)
+
+[node name="Grass116" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(128, -136)
+
+[node name="Grass117" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(204, -161)
+
+[node name="Grass121" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(204, -178)
+
+[node name="Grass118" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(105, -220)
+
+[node name="Grass119" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(306, -137)
+
+[node name="Grass71" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(319, 24)
+
+[node name="Grass72" parent="Props/Grass" instance=ExtResource("13_7gp31")]
+position = Vector2(319, 24)
+
 [node name="Grass3" parent="Props/Grass" instance=ExtResource("13_7gp31")]
 position = Vector2(56, 128)
 
