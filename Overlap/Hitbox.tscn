@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://duxh76dq77dot"]
+
+[sub_resource type="GDScript" id="GDScript_82npi"]
+script/source = "extends Area2D
+
+@export var DAMAGE = 1
+"
+
+[node name="Hitbox" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = SubResource("GDScript_82npi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

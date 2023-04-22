@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd60coqywd87u"]
+
+[ext_resource type="Script" path="res://Overlap/RockSpot.gd" id="1_eo6p1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8nfm"]
+radius = 1.0
+
+[node name="RockSpot" type="Marker2D"]
+script = ExtResource("1_eo6p1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_r8nfm")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

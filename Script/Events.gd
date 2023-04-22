@@ -1,4 +1,4 @@
 extends Node
 
-signal translateCamera(offset)
-signal finishedTranslation
+signal translate_camera(offset)
+signal finished_translation

@@ -5,7 +5,7 @@ var isMoving = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	is_current()
-	Events.connect("translateCamera", translateCamera)
+	Events.connect("translate_camera", translateCamera)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,4 +18,4 @@ func translateCamera(offset):
 		isMoving = false
 #	else:
 #		await get_tree().idl
-	Events.emit_signal("finishedTranslation")
+	Events.emit_signal("finished_translation")
