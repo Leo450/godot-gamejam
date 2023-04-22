@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ccac6jw26xhis"]
+[gd_scene load_steps=28 format=3 uid="uid://c0vkxfjouw0gj"]
 
 [ext_resource type="Texture2D" uid="uid://cjgyfku51yfu1" path="res://Assets/Cainos/TX Tileset Grass.png" id="1_mv6o2"]
 [ext_resource type="Texture2D" uid="uid://c7pydbifkfvg5" path="res://Assets/Cainos/TX Props.png" id="3_8ofni"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bh8cixiul7bao" path="res://Script/Camera.tscn" id="10_8u23h"]
 [ext_resource type="PackedScene" uid="uid://d2obj602b1s0k" path="res://Actors/Grass.tscn" id="13_7gp31"]
 [ext_resource type="PackedScene" uid="uid://brh5pq5so7xak" path="res://Actors/Rock.tscn" id="14_4ukly"]
+[ext_resource type="PackedScene" uid="uid://cgo01sdbktamj" path="res://Actors/Bush.tscn" id="15_3fupt"]
 [ext_resource type="PackedScene" uid="uid://dyiw8fyux6o1m" path="res://Actors/Tree.tscn" id="15_7niw3"]
 [ext_resource type="Script" path="res://Overlap/RockSpotController.gd" id="15_pot2o"]
 [ext_resource type="PackedScene" uid="uid://cd60coqywd87u" path="res://Overlap/RockSpot.tscn" id="16_iledt"]
@@ -2703,6 +2704,10 @@ material = SubResource("ShaderMaterial_iw7tn")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -24.0
+offset_right = -8.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_bnv4j")
@@ -2973,12 +2978,6 @@ y_sort_enabled = true
 
 [node name="Grass" parent="Props/Grass" instance=ExtResource("13_7gp31")]
 position = Vector2(96, 80)
-
-[node name="Grass2" parent="Props/Grass" instance=ExtResource("13_7gp31")]
-position = Vector2(176, 160)
-
-[node name="Grass3" parent="Props/Grass" instance=ExtResource("13_7gp31")]
-position = Vector2(192, 160)
 
 [node name="Grass4" parent="Props/Grass" instance=ExtResource("13_7gp31")]
 position = Vector2(80, 80)
@@ -3312,7 +3311,7 @@ position = Vector2(304, -208)
 
 [node name="Tree4" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(336, -208)
+position = Vector2(304, -168)
 
 [node name="Tree20" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
@@ -3320,67 +3319,130 @@ position = Vector2(320, -272)
 
 [node name="Tree5" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(368, -192)
+position = Vector2(360, -168)
 
 [node name="Tree6" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(400, -208)
+position = Vector2(392, -160)
 
 [node name="Tree7" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(416, -192)
+position = Vector2(424, -168)
 
 [node name="Tree8" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(448, -208)
-
-[node name="Tree9" parent="Props/Trees" instance=ExtResource("15_7niw3")]
-z_index = 0
-position = Vector2(496, -192)
+position = Vector2(504, -160)
 
 [node name="Tree10" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(528, -208)
+position = Vector2(536, -168)
 
-[node name="Tree11" parent="Props/Trees" instance=ExtResource("15_7niw3")]
+[node name="Tree28" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(560, -208)
+position = Vector2(80, 136)
 
 [node name="Tree12" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(592, -192)
-
-[node name="Tree13" parent="Props/Trees" instance=ExtResource("15_7niw3")]
-z_index = 0
-position = Vector2(624, -208)
-
-[node name="Tree14" parent="Props/Trees" instance=ExtResource("15_7niw3")]
-z_index = 0
-position = Vector2(640, -192)
-
-[node name="Tree15" parent="Props/Trees" instance=ExtResource("15_7niw3")]
-z_index = 0
-position = Vector2(624, -176)
-
-[node name="Tree16" parent="Props/Trees" instance=ExtResource("15_7niw3")]
-z_index = 0
-position = Vector2(640, -160)
-
-[node name="Tree17" parent="Props/Trees" instance=ExtResource("15_7niw3")]
-z_index = 0
-position = Vector2(640, -112)
+position = Vector2(624, -160)
 
 [node name="Tree18" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(624, -96)
+position = Vector2(624, -72)
 
 [node name="Tree19" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(640, -64)
+position = Vector2(624, 0)
 
-[node name="Tree21" parent="Props/Trees" instance=ExtResource("15_7niw3")]
+[node name="Tree26" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
-position = Vector2(640, -16)
+position = Vector2(168, 144)
+
+[node name="Tree27" parent="Props/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(248, 128)
+
+[node name="Bushes" type="Node2D" parent="Props"]
+
+[node name="Bush" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(16, 144)
+
+[node name="Bush6" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(16, 112)
+
+[node name="Bush2" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(176, 176)
+
+[node name="Bush8" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(208, 176)
+
+[node name="Bush11" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(240, 176)
+
+[node name="Bush12" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(272, 176)
+
+[node name="Bush13" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(304, 176)
+
+[node name="Bush14" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(304, 176)
+
+[node name="Bush15" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(208, 176)
+
+[node name="Bush16" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(304, 176)
+
+[node name="Bush17" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(336, 176)
+
+[node name="Bush18" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(432, 176)
+
+[node name="Bush19" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(368, 176)
+
+[node name="Bush20" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(464, 176)
+
+[node name="Bush21" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(400, 176)
+
+[node name="Bush22" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(464, 176)
+
+[node name="Bush23" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(496, 176)
+
+[node name="Bush24" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(528, 176)
+
+[node name="Bush25" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(560, 176)
+
+[node name="Bush26" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(560, 176)
+
+[node name="Bush27" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(592, 176)
+
+[node name="Bush28" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(624, 176)
+
+[node name="Bush7" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(144, 176)
+
+[node name="Bush4" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(16, 176)
+
+[node name="Bush5" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(48, 176)
+
+[node name="Bush9" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(80, 176)
+
+[node name="Bush10" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
+position = Vector2(112, 176)
 
 [node name="Player" parent="Props" instance=ExtResource("4_6utaf")]
 z_index = 2
