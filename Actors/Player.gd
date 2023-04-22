@@ -7,7 +7,8 @@ extends CharacterBody2D
 enum {
 	MOVE,
 	ATTACK,
-	CHANGE_MAP
+	CHANGE_MAP,
+	NOP
 }
 
 var state = MOVE
@@ -20,6 +21,8 @@ var timer = null
 @onready var hitbox_collision_shape = $HitboxPivot/Hitbox/CollisionShape2D
 
 func _ready():
+	Events.connect("translate_camera", _on_translate_camera)
+	Events.connect("nop_camera", _on_nop_camera)
 	hitbox_collision_shape.disabled = true
 
 func _physics_process(delta):
@@ -27,6 +30,7 @@ func _physics_process(delta):
 		MOVE: move_state(delta) 
 		ATTACK: attack_state(delta)
 		CHANGE_MAP: change_map_state(delta)
+		NOP: nop_state(delta)
 
 func move_state(delta):
 	input_to_velocity(delta)
@@ -47,16 +51,21 @@ func _on_animation_tree_animation_finished(anim_name: String):
 	if anim_name.begins_with("Attack"):
 		state = MOVE
 
-func change_map_state(delta):
-	velocity = velocity.move_toward(last_input_vector * MAX_SPEED, ACCELERATION * delta)
-	move_and_slide()
-
-func change_map():
-	create_tween().
+func _on_translate_camera(direction):
 	state = CHANGE_MAP
-
-func _on_change_map_state_end():
+	await create_tween().tween_property(self, "global_position", global_position + direction * 12, .5).finished
 	state = MOVE
+
+func _on_nop_camera(direction):
+	state = CHANGE_MAP
+	await create_tween().tween_property(self, "global_position", global_position + direction * -12, .5).finished
+	state = MOVE
+
+func change_map_state(delta):
+	pass
+
+func nop_state(delta):
+	pass
 
 func input_to_velocity(delta):
 	input_vector = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()
