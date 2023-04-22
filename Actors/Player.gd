@@ -16,7 +16,7 @@ var state = MOVE
 
 func _physics_process(delta):
 	match state:
-		MOVE: move_state(delta)
+		MOVE: move_state(delta) 
 		ATTACK: attack_state(delta)
 
 func move_state(delta):
