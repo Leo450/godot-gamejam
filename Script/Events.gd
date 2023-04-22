@@ -4,6 +4,7 @@ var power_state = false
 
 signal translate_camera(offset)
 signal finished_translation
+signal nop_camera
 signal power_change
 
 func toggle_power():
