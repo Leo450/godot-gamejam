@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b618bo05rcl8"]
+
+[ext_resource type="Script" path="res://TriggerCamera.gd" id="1_iags1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejc5u"]
+
+[node name="TriggerCamera" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_iags1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ejc5u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
