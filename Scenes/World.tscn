@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c0vkxfjouw0gj"]
+[gd_scene load_steps=31 format=3 uid="uid://c0vkxfjouw0gj"]
 
 [ext_resource type="Texture2D" uid="uid://cjgyfku51yfu1" path="res://Assets/Cainos/TX Tileset Grass.png" id="1_mv6o2"]
 [ext_resource type="Texture2D" uid="uid://c7pydbifkfvg5" path="res://Assets/Cainos/TX Props.png" id="3_8ofni"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dyiw8fyux6o1m" path="res://Actors/Tree.tscn" id="15_7niw3"]
 [ext_resource type="Script" path="res://Overlap/RockSpotController.gd" id="15_pot2o"]
 [ext_resource type="PackedScene" uid="uid://cd60coqywd87u" path="res://Overlap/RockSpot.tscn" id="16_iledt"]
+[ext_resource type="Script" path="res://Scenes/Hidden.gd" id="16_uw3hp"]
+[ext_resource type="PackedScene" uid="uid://bw424owfocbnl" path="res://Actors/Cross.tscn" id="17_06pvn"]
 
 [sub_resource type="GDScript" id="GDScript_5e2dw"]
 script/source = "extends Node2D
@@ -2757,253 +2759,10 @@ position = Vector2(160.5, 90.25)
 script = ExtResource("15_pot2o")
 
 [node name="RockSpot" parent="RockSpotController" instance=ExtResource("16_iledt")]
-position = Vector2(80, 128)
+position = Vector2(96, -208)
 
 [node name="RockSpot2" parent="RockSpotController" instance=ExtResource("16_iledt")]
-position = Vector2(80, 96)
-
-[node name="Screen0-0" type="Node2D" parent="."]
-
-[node name="TriggerCameraH" parent="Screen0-0" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 180)
-scale = Vector2(16, 0.1)
-enabled = false
-
-[node name="TriggerCameraH2" parent="Screen0-0" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 0)
-scale = Vector2(16, 0.1)
-
-[node name="TriggerCameraV" parent="Screen0-0" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(320, 90)
-scale = Vector2(0.1, 9)
-is_horizontal = false
-
-[node name="TriggerCameraV2" parent="Screen0-0" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(0, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-is_horizontal = false
-
-[node name="Screen0-1" type="Node2D" parent="."]
-position = Vector2(0, -180)
-
-[node name="TriggerCameraH2" parent="Screen0-1" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 0)
-scale = Vector2(16, 0.1)
-
-[node name="TriggerCameraV" parent="Screen0-1" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(320, 90)
-scale = Vector2(0.1, 9)
-is_horizontal = false
-
-[node name="TriggerCameraV2" parent="Screen0-1" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(0, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-is_horizontal = false
-
-[node name="Screen0-2" type="Node2D" parent="."]
-position = Vector2(0, -360)
-
-[node name="TriggerCameraH2" parent="Screen0-2" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 0)
-scale = Vector2(16, 0.1)
-
-[node name="TriggerCameraV" parent="Screen0-2" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(320, 90)
-scale = Vector2(0.1, 9)
-is_horizontal = false
-
-[node name="TriggerCameraV2" parent="Screen0-2" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(0, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-
-[node name="Screen0-3" type="Node2D" parent="."]
-position = Vector2(0, -540)
-
-[node name="TriggerCameraH2" parent="Screen0-3" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 0)
-scale = Vector2(16, 0.1)
-
-[node name="TriggerCameraV" parent="Screen0-3" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(320, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-is_horizontal = false
-
-[node name="TriggerCameraV2" parent="Screen0-3" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(0, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-
-[node name="Screen0-4" type="Node2D" parent="."]
-position = Vector2(0, -720)
-
-[node name="TriggerCameraH2" parent="Screen0-4" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 0)
-scale = Vector2(16, 0.1)
-
-[node name="TriggerCameraV" parent="Screen0-4" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(320, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-is_horizontal = false
-
-[node name="TriggerCameraV2" parent="Screen0-4" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(0, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-
-[node name="Screen0-5" type="Node2D" parent="."]
-position = Vector2(0, -900)
-
-[node name="TriggerCameraH2" parent="Screen0-5" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 0)
-scale = Vector2(16, 0.1)
-
-[node name="TriggerCameraV" parent="Screen0-5" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(320, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-is_horizontal = false
-
-[node name="TriggerCameraV2" parent="Screen0-5" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(0, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-
-[node name="Screen0-6" type="Node2D" parent="."]
-position = Vector2(0, -1080)
-
-[node name="TriggerCameraH2" parent="Screen0-6" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 0)
-scale = Vector2(16, 0.1)
-enabled = false
-
-[node name="TriggerCameraV" parent="Screen0-6" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(320, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-is_horizontal = false
-
-[node name="TriggerCameraV2" parent="Screen0-6" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(0, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-
-[node name="Screen1-0" type="Node2D" parent="."]
-position = Vector2(320, 0)
-
-[node name="TriggerCameraH" parent="Screen1-0" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 180)
-scale = Vector2(16, 0.1)
-enabled = false
-
-[node name="TriggerCameraH2" parent="Screen1-0" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 0)
-scale = Vector2(16, 0.1)
-
-[node name="TriggerCameraV" parent="Screen1-0" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(320, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-is_horizontal = false
-
-[node name="Screen1-1" type="Node2D" parent="."]
-position = Vector2(320, -180)
-
-[node name="TriggerCameraH2" parent="Screen1-1" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 0)
-scale = Vector2(16, 0.1)
-enabled = false
-
-[node name="TriggerCameraV" parent="Screen1-1" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(320, 90)
-scale = Vector2(0.1, 9)
-enabled = false
-is_horizontal = false
+position = Vector2(192, -288)
 
 [node name="Props" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -3504,6 +3263,15 @@ position = Vector2(8, 96)
 z_index = 2
 position = Vector2(160, 96)
 
+[node name="Hidden" type="Node2D" parent="Props"]
+script = ExtResource("16_uw3hp")
+
+[node name="Cross" parent="Props/Hidden" instance=ExtResource("17_06pvn")]
+position = Vector2(96, -208)
+
+[node name="Cross2" parent="Props/Hidden" instance=ExtResource("17_06pvn")]
+position = Vector2(192, -288)
+
 [node name="Bushes" type="Node2D" parent="."]
 
 [node name="Bush" parent="Bushes" instance=ExtResource("15_3fupt")]
@@ -3584,5 +3352,250 @@ position = Vector2(632, 168)
 [node name="Bush26" parent="Bushes" instance=ExtResource("15_3fupt")]
 position = Vector2(640, 136)
 
-[node name="Bush4" parent="." instance=ExtResource("15_3fupt")]
+[node name="Bush27" parent="Bushes" instance=ExtResource("15_3fupt")]
 position = Vector2(0, -24)
+
+[node name="TriggerCamera" type="Node2D" parent="."]
+
+[node name="Screen0-0" type="Node2D" parent="TriggerCamera"]
+
+[node name="TriggerCameraH" parent="TriggerCamera/Screen0-0" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 180)
+scale = Vector2(16, 0.1)
+enabled = false
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen0-0" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen0-0" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+is_horizontal = false
+
+[node name="TriggerCameraV2" parent="TriggerCamera/Screen0-0" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(0, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+is_horizontal = false
+
+[node name="Screen0-1" type="Node2D" parent="TriggerCamera"]
+position = Vector2(0, -180)
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen0-1" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen0-1" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+is_horizontal = false
+
+[node name="TriggerCameraV2" parent="TriggerCamera/Screen0-1" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(0, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+is_horizontal = false
+
+[node name="Screen0-2" type="Node2D" parent="TriggerCamera"]
+position = Vector2(0, -360)
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen0-2" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen0-2" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+is_horizontal = false
+
+[node name="TriggerCameraV2" parent="TriggerCamera/Screen0-2" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(0, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+
+[node name="Screen0-3" type="Node2D" parent="TriggerCamera"]
+position = Vector2(0, -540)
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen0-3" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen0-3" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+is_horizontal = false
+
+[node name="TriggerCameraV2" parent="TriggerCamera/Screen0-3" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(0, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+
+[node name="Screen0-4" type="Node2D" parent="TriggerCamera"]
+position = Vector2(0, -720)
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen0-4" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen0-4" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+is_horizontal = false
+
+[node name="TriggerCameraV2" parent="TriggerCamera/Screen0-4" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(0, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+
+[node name="Screen0-5" type="Node2D" parent="TriggerCamera"]
+position = Vector2(0, -900)
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen0-5" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen0-5" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+is_horizontal = false
+
+[node name="TriggerCameraV2" parent="TriggerCamera/Screen0-5" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(0, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+
+[node name="Screen0-6" type="Node2D" parent="TriggerCamera"]
+position = Vector2(0, -1080)
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen0-6" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+enabled = false
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen0-6" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+is_horizontal = false
+
+[node name="TriggerCameraV2" parent="TriggerCamera/Screen0-6" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(0, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+
+[node name="Screen1-0" type="Node2D" parent="TriggerCamera"]
+position = Vector2(320, 0)
+
+[node name="TriggerCameraH" parent="TriggerCamera/Screen1-0" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 180)
+scale = Vector2(16, 0.1)
+enabled = false
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen1-0" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen1-0" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+is_horizontal = false
+
+[node name="Screen1-1" type="Node2D" parent="TriggerCamera"]
+position = Vector2(320, -180)
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen1-1" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+enabled = false
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen1-1" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+is_horizontal = false
