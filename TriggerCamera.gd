@@ -14,8 +14,10 @@ func _on_body_entered(body):
 	var direction = body.last_input_vector
 	if (is_horizontal):
 		direction.x = 0
+		direction.y = sign(direction.y)
 	else:
 		direction.y = 0
+		direction.x = sign(direction.x)
 	
 	body.change_map()
 	

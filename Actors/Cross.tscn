@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw424owfocbnl"]
+
+[ext_resource type="Texture2D" uid="uid://ofryc5d8qik5" path="res://Assets/cross.png" id="1_3nwfw"]
+
+[node name="Node2D" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_3nwfw")

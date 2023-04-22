@@ -2966,6 +2966,7 @@ visibility_layer = 2
 z_index = 1
 position = Vector2(160, 180)
 scale = Vector2(16, 0.1)
+enabled = false
 
 [node name="TriggerCameraH2" parent="Screen1-0" instance=ExtResource("9_yhms3")]
 light_mask = 2
@@ -2973,7 +2974,6 @@ visibility_layer = 2
 z_index = 1
 position = Vector2(160, 0)
 scale = Vector2(16, 0.1)
-enabled = false
 
 [node name="TriggerCameraV" parent="Screen1-0" instance=ExtResource("9_yhms3")]
 light_mask = 2
