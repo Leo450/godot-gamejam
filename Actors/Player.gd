@@ -52,12 +52,7 @@ func change_map_state(delta):
 	move_and_slide()
 
 func change_map():
-	timer = Timer.new()
-	timer.connect("timeout", _on_change_map_state_end)
-	timer.wait_time = .25
-	timer.one_shot = true
-	add_child(timer)
-	timer.start()
+	create_tween().
 	state = CHANGE_MAP
 
 func _on_change_map_state_end():
