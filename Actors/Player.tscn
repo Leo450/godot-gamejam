@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxan751f2tcvk"]
+[gd_scene load_steps=29 format=3 uid="uid://bxan751f2tcvk"]
 
 [ext_resource type="Texture2D" uid="uid://c5ykva3ttonay" path="res://Assets/SimpleCharacter/Girl-Sheet.png" id="1_blxf1"]
 [ext_resource type="Script" path="res://Actors/Player.gd" id="1_kk82p"]
@@ -226,6 +226,10 @@ graph_offset = Vector2(-200, -68)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_yyokh"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qli3s"]
+radius = 3.0
+height = 10.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_kk82p")
 
@@ -248,3 +252,8 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_yyokh")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Run/blend_position = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qli3s")

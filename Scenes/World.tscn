@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0vkxfjouw0gj"]
+[gd_scene load_steps=11 format=3 uid="uid://c0vkxfjouw0gj"]
 
 [ext_resource type="Texture2D" uid="uid://cjgyfku51yfu1" path="res://Assets/Cainos/TX Tileset Grass.png" id="1_mv6o2"]
 [ext_resource type="Texture2D" uid="uid://0n6nrxfjgp6o" path="res://Assets/Cainos/TX Tileset Stone Ground.png" id="2_g0nd8"]
 [ext_resource type="Texture2D" uid="uid://c7pydbifkfvg5" path="res://Assets/Cainos/TX Props.png" id="3_8ofni"]
+[ext_resource type="PackedScene" uid="uid://bxan751f2tcvk" path="res://Actors/Player.tscn" id="4_6utaf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmh5b"]
 texture = ExtResource("1_mv6o2")
@@ -586,3 +587,6 @@ texture_filter = 1
 scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_qhsp0")
 format = 2
+
+[node name="Player" parent="." instance=ExtResource("4_6utaf")]
+position = Vector2(79.0696, 86.6527)

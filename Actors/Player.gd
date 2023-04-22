@@ -1,28 +1,47 @@
 extends CharacterBody2D
 
+@export var ACCELERATION = 500
+@export var MAX_SPEED = 80
+@export var FRICTION = 700
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+enum {
+	MOVE,
+	ATTACK
+}
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var state = MOVE
 
+@onready var animation_tree = $AnimationTree
+@onready var animation_state = animation_tree.get("parameters/playback")
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	match state:
+		MOVE: move_state(delta)
+		ATTACK: attack_state(delta)
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+func move_state(delta):
+	var input_vector = input_to_velocity(delta)
+	animate(input_vector)
 	move_and_slide()
+
+func attack_state(delta):
+	pass
+
+func input_to_velocity(delta):
+	var input_vector = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()
+	
+	if input_vector != Vector2.ZERO:
+		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	
+	return input_vector
+
+func animate(input_vector):
+	if input_vector == Vector2.ZERO:
+		animation_state.travel("Idle")
+		return
+		
+	animation_tree.set("parameters/Idle/blend_position", input_vector)
+	animation_tree.set("parameters/Run/blend_position", input_vector)
+	animation_state.travel("Run")
