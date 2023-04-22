@@ -35,6 +35,9 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		state = ATTACK
+	
+	if Input.is_action_just_pressed("ui_focus_next"):
+		Events.toggle_power()
 
 func attack_state(delta):
 	animation_state.travel("Attack")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw424owfocbnl"]
+[gd_scene load_steps=3 format=3 uid="uid://bw424owfocbnl"]
 
 [ext_resource type="Texture2D" uid="uid://ofryc5d8qik5" path="res://Assets/cross.png" id="1_3nwfw"]
+[ext_resource type="Script" path="res://Actors/Cross.gd" id="2_l6moc"]
 
-[node name="Node2D" type="Sprite2D"]
+[node name="Cross" type="Sprite2D"]
 texture_filter = 1
 texture = ExtResource("1_3nwfw")
+script = ExtResource("2_l6moc")

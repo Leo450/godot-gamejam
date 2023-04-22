@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ccac6jw26xhis"]
+[gd_scene load_steps=30 format=3 uid="uid://ccac6jw26xhis"]
 
 [ext_resource type="Texture2D" uid="uid://cjgyfku51yfu1" path="res://Assets/Cainos/TX Tileset Grass.png" id="1_mv6o2"]
 [ext_resource type="Texture2D" uid="uid://c7pydbifkfvg5" path="res://Assets/Cainos/TX Props.png" id="3_8ofni"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bh8cixiul7bao" path="res://Script/Camera.tscn" id="10_8u23h"]
 [ext_resource type="PackedScene" uid="uid://d2obj602b1s0k" path="res://Actors/Grass.tscn" id="13_7gp31"]
 [ext_resource type="PackedScene" uid="uid://brh5pq5so7xak" path="res://Actors/Rock.tscn" id="14_4ukly"]
+[ext_resource type="Script" path="res://Scenes/Hidden.gd" id="15_7a38n"]
 [ext_resource type="PackedScene" uid="uid://dyiw8fyux6o1m" path="res://Actors/Tree.tscn" id="15_7niw3"]
+[ext_resource type="PackedScene" uid="uid://bw424owfocbnl" path="res://Actors/Cross.tscn" id="15_es3nv"]
 [ext_resource type="Script" path="res://Overlap/RockSpotController.gd" id="15_pot2o"]
 [ext_resource type="PackedScene" uid="uid://cd60coqywd87u" path="res://Overlap/RockSpot.tscn" id="16_iledt"]
 
@@ -37,17 +39,11 @@ shader_parameter/OPACITY = 0.0
 [sub_resource type="GDScript" id="GDScript_bnv4j"]
 script/source = "extends ColorRect
 
-var enabled = true
+func _ready():
+	Events.connect(\"power_change\", _on_power_change)
 
-func _process(delta):
-	if !enabled: return
-	
-	if Input.is_action_just_pressed(\"ui_focus_next\"):
-		var value = material.get(\"shader_parameter/OPACITY\")
-		if value == 1:
-			material.set(\"shader_parameter/OPACITY\", 0)
-		else:
-			material.set(\"shader_parameter/OPACITY\", 1)
+func _on_power_change(value):
+	material.set(\"shader_parameter/OPACITY\", value)
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmh5b"]
@@ -2756,10 +2752,10 @@ position = Vector2(160.5, 90.25)
 script = ExtResource("15_pot2o")
 
 [node name="RockSpot" parent="RockSpotController" instance=ExtResource("16_iledt")]
-position = Vector2(80, 128)
+position = Vector2(64, -272)
 
 [node name="RockSpot2" parent="RockSpotController" instance=ExtResource("16_iledt")]
-position = Vector2(80, 96)
+position = Vector2(192, -256)
 
 [node name="Screen0-0" type="Node2D" parent="."]
 
@@ -3434,6 +3430,15 @@ position = Vector2(640, -64)
 [node name="Tree21" parent="Props/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
 position = Vector2(640, -16)
+
+[node name="Hidden" type="Node2D" parent="Props"]
+script = ExtResource("15_7a38n")
+
+[node name="Cross" parent="Props/Hidden" instance=ExtResource("15_es3nv")]
+position = Vector2(64, -272)
+
+[node name="Cross2" parent="Props/Hidden" instance=ExtResource("15_es3nv")]
+position = Vector2(192, -256)
 
 [node name="Player" parent="Props" instance=ExtResource("4_6utaf")]
 z_index = 2
