@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyiw8fyux6o1m"]
+
+[ext_resource type="Texture2D" uid="uid://rjj86ycrakyx" path="res://Assets/Action RPG/Tree.png" id="1_asd2u"]
+
+[node name="Tree" type="Sprite2D"]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("1_asd2u")
