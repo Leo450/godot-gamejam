@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2obj602b1s0k"]
+[gd_scene load_steps=6 format=3 uid="uid://d2obj602b1s0k"]
 
 [ext_resource type="Script" path="res://Actors/Grass.gd" id="1_cmxi5"]
 [ext_resource type="Texture2D" uid="uid://b2s4fo7gaeb4a" path="res://Assets/Action RPG/Grass.png" id="1_x1a8x"]
@@ -7,7 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrutu"]
 size = Vector2(14, 14)
 
-[node name="Grass" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8em2"]
+size = Vector2(14, 14)
+
+[node name="Grass" type="CharacterBody2D"]
 script = ExtResource("1_cmxi5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,6 +27,10 @@ SHOW_HIT = false
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_vrutu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_g8em2")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
