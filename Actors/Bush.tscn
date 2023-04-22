@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgo01sdbktamj"]
+
+[ext_resource type="Texture2D" uid="uid://b33abf2lc08vq" path="res://Assets/Action RPG/Bush.png" id="1_jslps"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8haq"]
+radius = 13.0384
+
+[node name="Bush" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_jslps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o8haq")
