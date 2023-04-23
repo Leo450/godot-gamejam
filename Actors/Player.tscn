@@ -1,10 +1,11 @@
-[gd_scene load_steps=46 format=3 uid="uid://bxan751f2tcvk"]
+[gd_scene load_steps=47 format=3 uid="uid://bxan751f2tcvk"]
 
 [ext_resource type="Texture2D" uid="uid://c5ykva3ttonay" path="res://Assets/SimpleCharacter/Girl-Sheet.png" id="1_blxf1"]
 [ext_resource type="Script" path="res://Actors/Player.gd" id="1_kk82p"]
 [ext_resource type="Texture2D" uid="uid://de0cwfe4y33ro" path="res://Assets/Shadow/SmallShadow.png" id="3_cjg8m"]
 [ext_resource type="Texture2D" uid="uid://cfp8lae2e0wyg" path="res://Assets/Shadow/MediumShadow.png" id="4_7e3et"]
 [ext_resource type="Texture2D" uid="uid://g8ywyyw04b0j" path="res://Assets/Shadow/LargeShadow.png" id="5_ructb"]
+[ext_resource type="PackedScene" uid="uid://chcwi2c8gr5yn" path="res://UI/Tab.tscn" id="6_g3fq2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ca2qv"]
 animations = [{
@@ -556,5 +557,8 @@ collision_mask = 17
 position = Vector2(0, 7)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bk3ph")
+
+[node name="Tab" parent="." instance=ExtResource("6_g3fq2")]
+position = Vector2(0, -26)
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

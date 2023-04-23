@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbsfiyh8x7jge"]
+[gd_scene load_steps=6 format=3 uid="uid://bbsfiyh8x7jge"]
 
 [ext_resource type="Texture2D" uid="uid://8b4g3bdmn38u" path="res://Assets/stage_one.png" id="1_8vwj6"]
+[ext_resource type="Texture2D" uid="uid://bjnw22dicd4yy" path="res://Assets/light.png" id="2_i01m2"]
 
 [sub_resource type="Animation" id="Animation_dj8dc"]
 resource_name = "Default"
@@ -51,3 +52,8 @@ autoplay = "Default"
 libraries = {
 "": SubResource("AnimationLibrary_wo50s")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.0625, 0.0625)
+color = Color(0.235294, 0.235294, 0, 1)
+texture = ExtResource("2_i01m2")

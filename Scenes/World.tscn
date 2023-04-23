@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c1any8i7qocsn"]
+[gd_scene load_steps=54 format=3 uid="uid://c1any8i7qocsn"]
 
 [ext_resource type="Texture2D" uid="uid://cjgyfku51yfu1" path="res://Assets/Cainos/TX Tileset Grass.png" id="1_mv6o2"]
 [ext_resource type="Texture2D" uid="uid://6k2is5ywgmb0" path="res://Assets/background.png" id="1_vo64i"]
@@ -2812,6 +2812,68 @@ sources/4 = SubResource("TileSetAtlasSource_7i8i7")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qibx1"]
 size = Vector2(24, 2)
 
+[sub_resource type="Animation" id="Animation_jnncs"]
+resource_name = "Default"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(159, -1185), Vector2(154, -1185)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:energy")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5, 2.5]
+}
+
+[sub_resource type="Animation" id="Animation_gojs0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(159, -1185)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.28]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vyk03"]
+_data = {
+"Default": SubResource("Animation_jnncs"),
+"RESET": SubResource("Animation_gojs0")
+}
+
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -3104,12 +3166,6 @@ position = Vector2(64, -768)
 
 [node name="Grass117" parent="Props/Grass" instance=ExtResource("13_7gp31")]
 position = Vector2(48, -768)
-
-[node name="Grass118" parent="Props/Grass" instance=ExtResource("13_7gp31")]
-position = Vector2(32, -768)
-
-[node name="Grass119" parent="Props/Grass" instance=ExtResource("13_7gp31")]
-position = Vector2(16, -768)
 
 [node name="Grass120" parent="Props/Grass" instance=ExtResource("13_7gp31")]
 position = Vector2(336, -880)
@@ -4034,6 +4090,12 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("18_ph4a5")
 DELAY = 4
 
+[node name="Eye11" parent="Props/VisiblePowerActivated" instance=ExtResource("17_m1gn6")]
+position = Vector2(208, -1072)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("18_ph4a5")
+DELAY = 5
+
 [node name="Eye4" parent="Props/VisiblePowerActivated" instance=ExtResource("17_m1gn6")]
 position = Vector2(88, -609)
 scale = Vector2(0.9, 0.9)
@@ -4043,6 +4105,12 @@ script = ExtResource("18_ph4a5")
 position = Vector2(543, -614)
 scale = Vector2(0.9, 0.9)
 script = ExtResource("18_ph4a5")
+
+[node name="Eye12" parent="Props/VisiblePowerActivated" instance=ExtResource("17_m1gn6")]
+position = Vector2(360, -677)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("18_ph4a5")
+DELAY = 2
 
 [node name="Eye5" parent="Props/VisiblePowerActivated" instance=ExtResource("17_m1gn6")]
 position = Vector2(112, -960)
@@ -4086,7 +4154,7 @@ position = Vector2(432, 128)
 position = Vector2(160, -288)
 
 [node name="Jen-mi8" parent="Props/VisiblePowerActivated" instance=ExtResource("18_1l61s")]
-position = Vector2(64, 96)
+position = Vector2(80, 128)
 
 [node name="TileMap" type="TileMap" parent="Props/VisiblePowerActivated"]
 texture_filter = 1
@@ -4145,15 +4213,6 @@ position = Vector2(272, -720)
 [node name="Tree10" parent="Props/VisiblePowerUnlocked/Trees" instance=ExtResource("15_7niw3")]
 z_index = 0
 position = Vector2(304, -720)
-
-[node name="PointLight2D2" type="PointLight2D" parent="Props/VisiblePowerUnlocked"]
-visible = false
-position = Vector2(624, -464)
-color = Color(0.917647, 0, 0, 1)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("27_hstcg")
-script = ExtResource("26_w7i15")
 
 [node name="HiddenPowerUnlocked" type="Node2D" parent="Props"]
 script = ExtResource("27_42c4m")
@@ -4346,14 +4405,6 @@ position = Vector2(160, 0)
 scale = Vector2(16, 0.1)
 enabled = false
 
-[node name="TriggerCameraH3" parent="TriggerCamera/Screen1-5" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(160, 180)
-scale = Vector2(16, 0.1)
-enabled = false
-
 [node name="TriggerCameraV" parent="TriggerCamera/Screen1-5" instance=ExtResource("9_yhms3")]
 light_mask = 2
 visibility_layer = 2
@@ -4362,14 +4413,6 @@ position = Vector2(320, 90)
 scale = Vector2(0.1, 9)
 enabled = false
 is_horizontal = false
-
-[node name="TriggerCameraV2" parent="TriggerCamera/Screen1-5" instance=ExtResource("9_yhms3")]
-light_mask = 2
-visibility_layer = 2
-z_index = 1
-position = Vector2(0, 90)
-scale = Vector2(0.1, 9)
-enabled = false
 
 [node name="Screen1-4" type="Node2D" parent="TriggerCamera"]
 position = Vector2(320, -720)
@@ -4500,5 +4543,11 @@ energy = 2.28
 shadow_enabled = true
 texture = ExtResource("27_hstcg")
 script = ExtResource("26_w7i15")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PointLight2D"]
+autoplay = "Default"
+libraries = {
+"": SubResource("AnimationLibrary_vyk03")
+}
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

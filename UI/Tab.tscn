@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://chcwi2c8gr5yn"]
+
+[ext_resource type="Texture2D" uid="uid://cwa6b1q8bovqo" path="res://Assets/tab.png" id="1_vlvy3"]
+[ext_resource type="Script" path="res://UI/Tab.gd" id="2_4n4gd"]
+
+[node name="Tab" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_vlvy3")
+script = ExtResource("2_4n4gd")

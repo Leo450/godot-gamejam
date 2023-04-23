@@ -19,7 +19,7 @@ func _on_body_entered(body):
 		direction.y = 0
 		direction.x = sign(direction.x)
 	
-	var can_move = !body.test_move(body.transform, direction * 12)
+	var can_move = !body.test_move(body.transform, direction * 14)
 	
 	if can_move:
 		Events.emit_signal("translate_camera", direction)
