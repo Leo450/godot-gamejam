@@ -8,7 +8,8 @@ enum {
 	MOVE,
 	ATTACK,
 	CHANGE_MAP,
-	NOP
+	NOP,
+	CINEMATIK
 }
 
 var state = MOVE
@@ -18,11 +19,15 @@ var timer = null
 
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
+@onready var animation_player = $AnimationPlayer
 @onready var hitbox_collision_shape = $HitboxPivot/Hitbox/CollisionShape2D
+@onready var sprite_2d = $Sprite2D
+@onready var shadow = $Shadow
 
 func _ready():
 	Events.connect("translate_camera", _on_translate_camera)
 	Events.connect("nop_camera", _on_nop_camera)
+	Events.connect("cinematik", _on_cinematik)
 	hitbox_collision_shape.disabled = true
 
 func _physics_process(delta):
@@ -31,6 +36,7 @@ func _physics_process(delta):
 		ATTACK: attack_state(delta)
 		CHANGE_MAP: change_map_state(delta)
 		NOP: nop_state(delta)
+		CINEMATIK: cinematik_state(delta)
 
 func move_state(delta):
 	input_to_velocity(delta)
@@ -39,9 +45,6 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		state = ATTACK
-	
-	if Input.is_action_just_pressed("ui_focus_next"):
-		Events.toggle_power()
 
 func attack_state(delta):
 	animation_state.travel("Attack")
@@ -85,3 +88,65 @@ func animate(input_vector):
 	animation_tree.set("parameters/Run/blend_position", input_vector)
 	animation_tree.set("parameters/Attack/blend_position", input_vector)
 	animation_state.travel("Run")
+
+func _on_cinematik():
+	state = CINEMATIK
+	
+	await create_tween().tween_property(self, "global_position", Vector2(160, -960), 2).finished
+	
+	animation_tree.active = false
+	await get_tree().create_timer(3).timeout
+	
+	animation_player.play("Fall")
+	await get_tree().create_timer(8).timeout
+	
+	shadow.visible = true
+	shadow.play("default")
+	await create_tween().tween_property(sprite_2d, "offset", Vector2(0, -60), 6).finished
+	shadow.stop()
+	shadow.frame = 2
+	
+	await get_tree().create_timer(2).timeout
+	
+	Events.toggle_power()
+	await get_tree().create_timer(1).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(1).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(.75).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(.5).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(.2).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(.2).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(.1).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(.1).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(.1).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(.1).timeout
+	Events.toggle_power()
+	await get_tree().create_timer(.1).timeout
+	
+	await get_tree().create_timer(3).timeout
+	
+	shadow.play("reverse")
+	await create_tween().tween_property(sprite_2d, "offset", Vector2(0, 0), 6).finished
+	shadow.stop()
+	shadow.visible = false
+	
+	Events.toggle_power()
+	
+	await get_tree().create_timer(3).timeout
+	
+	animation_tree.active = true
+	state = MOVE
+	
+	Events.emit_signal("cinematik_done")
+
+func cinematik_state(delta):
+	pass
+	

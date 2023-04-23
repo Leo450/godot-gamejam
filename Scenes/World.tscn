@@ -1,13 +1,13 @@
-[gd_scene load_steps=36 format=3 uid="uid://c0vkxfjouw0gj"]
+[gd_scene load_steps=37 format=3 uid="uid://c1any8i7qocsn"]
 
 [ext_resource type="Texture2D" uid="uid://cjgyfku51yfu1" path="res://Assets/Cainos/TX Tileset Grass.png" id="1_mv6o2"]
+[ext_resource type="Script" path="res://Power.gd" id="2_uaeml"]
 [ext_resource type="Texture2D" uid="uid://c7pydbifkfvg5" path="res://Assets/Cainos/TX Props.png" id="3_8ofni"]
 [ext_resource type="PackedScene" uid="uid://bxan751f2tcvk" path="res://Actors/Player.tscn" id="4_6utaf"]
 [ext_resource type="Shader" path="res://Shaders/NegativePP.gdshader" id="5_n7c2r"]
 [ext_resource type="Texture2D" uid="uid://b81fo7uf01tsd" path="res://Assets/Cainos/TX Tileset Wall.png" id="6_dfpgi"]
 [ext_resource type="Texture2D" uid="uid://buuxxin8w8fyl" path="res://Assets/Cainos/TX Struct.png" id="7_jkwon"]
 [ext_resource type="Texture2D" uid="uid://cgytnaob2sl74" path="res://Assets/RPG HOUSE/main_houses.png" id="8_0veh0"]
-[ext_resource type="PackedScene" uid="uid://bvoh6nsog4ph3" path="res://Actors/Obelisk.tscn" id="8_he48l"]
 [ext_resource type="PackedScene" uid="uid://b618bo05rcl8" path="res://Actors/TriggerCamera.tscn" id="9_yhms3"]
 [ext_resource type="PackedScene" uid="uid://bh8cixiul7bao" path="res://Script/Camera.tscn" id="10_8u23h"]
 [ext_resource type="PackedScene" uid="uid://d2obj602b1s0k" path="res://Actors/Grass.tscn" id="13_7gp31"]
@@ -17,46 +17,18 @@
 [ext_resource type="Script" path="res://Actors/Disapear.gd" id="15_fg2cp"]
 [ext_resource type="Script" path="res://Overlap/RockSpotController.gd" id="15_pot2o"]
 [ext_resource type="PackedScene" uid="uid://cd60coqywd87u" path="res://Overlap/RockSpot.tscn" id="16_iledt"]
-[ext_resource type="Script" path="res://Scenes/Hidden.gd" id="16_uw3hp"]
 [ext_resource type="PackedScene" uid="uid://bw424owfocbnl" path="res://Actors/Cross.tscn" id="17_06pvn"]
 [ext_resource type="PackedScene" uid="uid://dcf5lh2o2kqpr" path="res://Actors/Eye.tscn" id="17_m1gn6"]
+[ext_resource type="Script" path="res://Scenes/PowerHidden.gd" id="17_s5503"]
 [ext_resource type="PackedScene" uid="uid://bbsfiyh8x7jge" path="res://Actors/Zombi.tscn" id="18_1l61s"]
 [ext_resource type="Script" path="res://Actors/Eye3.gd" id="18_ph4a5"]
-[ext_resource type="PackedScene" uid="uid://bvoh6nsog4ph3" path="res://Actors/Obelisk1.tscn" id="22_l8tdf"]
-
-[sub_resource type="GDScript" id="GDScript_5e2dw"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
+[ext_resource type="PackedScene" uid="uid://bvoh6nsog4ph3" path="res://Actors/Obelisk.tscn" id="22_l8tdf"]
+[ext_resource type="Script" path="res://TriggerCinematik.gd" id="23_1u5su"]
+[ext_resource type="Script" path="res://Scenes/PowerUnlockedVisible.gd" id="23_3aahx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iw7tn"]
 shader = ExtResource("5_n7c2r")
 shader_parameter/OPACITY = 0.0
-
-[sub_resource type="GDScript" id="GDScript_bnv4j"]
-script/source = "extends ColorRect
-
-var enabled = true
-
-func _process(delta):
-	if !enabled: return
-	
-	if Input.is_action_just_pressed(\"ui_focus_next\"):
-		var value = material.get(\"shader_parameter/OPACITY\")
-		if value == 1:
-			material.set(\"shader_parameter/OPACITY\", 0)
-		else:
-			material.set(\"shader_parameter/OPACITY\", 1)
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmh5b"]
 texture = ExtResource("1_mv6o2")
@@ -2696,8 +2668,10 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_w33ms")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qibx1"]
+size = Vector2(24, 2)
+
 [node name="World" type="Node2D"]
-script = SubResource("GDScript_5e2dw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -2708,7 +2682,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_bnv4j")
+script = ExtResource("2_uaeml")
 
 [node name="TileMaps" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -2759,7 +2733,7 @@ tile_set = SubResource("TileSet_pnp2k")
 format = 2
 layer_0/tile_data = PackedInt32Array(6, 1769472, 15, -65530, 983040, 14, -65529, 1048576, 14, 7, 1048576, 15, -655324, 1769472, 15, 262150, 851968, 2, 327679, 524288, 2, 262147, 851968, 4, 262146, 851968, 4, 327683, 851968, 5, 327682, 851968, 5, -262109, 851968, 5, -327645, 851968, 4)
 
-[node name="Obelisk" parent="." instance=ExtResource("8_he48l")]
+[node name="Obelisk" parent="." instance=ExtResource("22_l8tdf")]
 visible = false
 z_index = 1
 position = Vector2(261.587, 69.4767)
@@ -2787,7 +2761,7 @@ scale = Vector2(0.2, 0.2)
 [node name="Rocks" type="Node2D" parent="Props"]
 
 [node name="Rock" parent="Props/Rocks" instance=ExtResource("14_4ukly")]
-position = Vector2(256, -768)
+position = Vector2(256, -800)
 
 [node name="Rock2" parent="Props/Rocks" instance=ExtResource("14_4ukly")]
 position = Vector2(64, -224)
@@ -3476,7 +3450,7 @@ z_index = 2
 position = Vector2(160, 96)
 
 [node name="Hidden" type="Node2D" parent="Props"]
-script = ExtResource("16_uw3hp")
+script = ExtResource("17_s5503")
 
 [node name="Cross" parent="Props/Hidden" instance=ExtResource("17_06pvn")]
 position = Vector2(256, -848)
@@ -3493,8 +3467,19 @@ scale = Vector2(0.7, 0.7)
 script = ExtResource("18_ph4a5")
 DELAY = 2
 
+[node name="Eye6" parent="Props/Hidden" instance=ExtResource("17_m1gn6")]
+position = Vector2(240, -1008)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("18_ph4a5")
+DELAY = 2
+
 [node name="Eye4" parent="Props/Hidden" instance=ExtResource("17_m1gn6")]
 position = Vector2(88, -609)
+scale = Vector2(0.9, 0.9)
+script = ExtResource("18_ph4a5")
+
+[node name="Eye5" parent="Props/Hidden" instance=ExtResource("17_m1gn6")]
+position = Vector2(112, -960)
 scale = Vector2(0.9, 0.9)
 script = ExtResource("18_ph4a5")
 
@@ -3505,6 +3490,9 @@ script = ExtResource("18_ph4a5")
 
 [node name="Jen-mi" parent="Props/Hidden" instance=ExtResource("18_1l61s")]
 position = Vector2(32, -672)
+
+[node name="Jen-mi2" parent="Props/Hidden" instance=ExtResource("18_1l61s")]
+position = Vector2(96, -1056)
 
 [node name="Bushes" type="Node2D" parent="Props"]
 
@@ -3588,6 +3576,51 @@ position = Vector2(640, 136)
 
 [node name="Bush27" parent="Props/Bushes" instance=ExtResource("15_3fupt")]
 position = Vector2(0, -24)
+
+[node name="Visible" type="Node2D" parent="Props"]
+script = ExtResource("23_3aahx")
+
+[node name="Trees" type="Node2D" parent="Props/Visible"]
+
+[node name="Tree" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(16, -720)
+
+[node name="Tree2" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(48, -720)
+
+[node name="Tree3" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(80, -720)
+
+[node name="Tree4" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(112, -720)
+
+[node name="Tree5" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(144, -720)
+
+[node name="Tree6" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(176, -720)
+
+[node name="Tree7" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(208, -720)
+
+[node name="Tree8" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(240, -720)
+
+[node name="Tree9" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(272, -720)
+
+[node name="Tree10" parent="Props/Visible/Trees" instance=ExtResource("15_7niw3")]
+z_index = 0
+position = Vector2(304, -720)
 
 [node name="TriggerCamera" type="Node2D" parent="."]
 
@@ -3794,6 +3827,42 @@ position = Vector2(0, 90)
 scale = Vector2(0.1, 9)
 enabled = false
 
+[node name="Screen1-4" type="Node2D" parent="TriggerCamera"]
+position = Vector2(320, -720)
+
+[node name="TriggerCameraH2" parent="TriggerCamera/Screen1-4" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 0)
+scale = Vector2(16, 0.1)
+enabled = false
+
+[node name="TriggerCameraH3" parent="TriggerCamera/Screen1-4" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(160, 180)
+scale = Vector2(16, 0.1)
+enabled = false
+
+[node name="TriggerCameraV" parent="TriggerCamera/Screen1-4" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(320, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+is_horizontal = false
+
+[node name="TriggerCameraV2" parent="TriggerCamera/Screen1-4" instance=ExtResource("9_yhms3")]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+position = Vector2(0, 90)
+scale = Vector2(0.1, 9)
+enabled = false
+
 [node name="Screen0-6" type="Node2D" parent="TriggerCamera"]
 position = Vector2(0, -1080)
 
@@ -3868,3 +3937,16 @@ position = Vector2(320, 90)
 scale = Vector2(0.1, 9)
 enabled = false
 is_horizontal = false
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(160, -960)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(160, -928)
+collision_mask = 2
+script = ExtResource("23_1u5su")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qibx1")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
