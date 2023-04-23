@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var nb_spots = 2
+@export var event_name = "tile_0_5_done"
 
 var current_spots = 0
 
@@ -16,4 +17,4 @@ func _on_rock_spot_rock_status_changed(status):
 	current_spots = clamp(current_spots, 0, nb_spots)
 	
 	if current_spots == nb_spots:
-		Events.emit_signal("tile_0_5_done")
+		Events.emit_signal(event_name)

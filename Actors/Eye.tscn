@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcf5lh2o2kqpr"]
+[gd_scene load_steps=6 format=3 uid="uid://dcf5lh2o2kqpr"]
 
 [ext_resource type="Texture2D" uid="uid://b344hn3rd0xdp" path="res://Assets/DreamSuckerSpriteSheet.png" id="1_2f1gy"]
+[ext_resource type="Texture2D" uid="uid://bjnw22dicd4yy" path="res://Assets/light.png" id="2_3xhsx"]
 
 [sub_resource type="Animation" id="Animation_haxpe"]
 resource_name = "Default"
@@ -51,3 +52,9 @@ autoplay = "Default"
 libraries = {
 "": SubResource("AnimationLibrary_p3r54")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.09375, 0.09375)
+color = Color(0.360784, 0.898039, 0.494118, 1)
+energy = 0.8
+texture = ExtResource("2_3xhsx")
