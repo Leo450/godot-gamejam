@@ -7,7 +7,6 @@ func _ready():
 	hide()
 	Events.connect("power_unlocked", _on_power_unlocked)
 	Events.connect("power_change", _on_power_change)
-	
 
 func _on_power_unlocked():
 	power_unlocked = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://brh5pq5so7xak"]
+[gd_scene load_steps=6 format=3 uid="uid://brh5pq5so7xak"]
 
 [ext_resource type="Script" path="res://Actors/Rock.gd" id="1_11umm"]
 [ext_resource type="Texture2D" uid="uid://c7pydbifkfvg5" path="res://Assets/Cainos/TX Props.png" id="1_uhy8l"]
+[ext_resource type="AudioStream" uid="uid://cqd6edkh21q6w" path="res://Assets/Audio/moverock.wav" id="3_qw8ks"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkvc7"]
 radius = 12.0
@@ -34,5 +35,10 @@ position = Vector2(0, 1)
 rotation = 1.5708
 scale = Vector2(0.9, 0.9)
 shape = SubResource("CapsuleShape2D_pwun2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qw8ks")
+volume_db = 8.0
+pitch_scale = 1.2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
