@@ -6,6 +6,7 @@ signal translate_camera(offset)
 signal finished_translation
 signal nop_camera
 signal power_change
+signal tile_0_5_done
 
 func toggle_power():
 	power_state = !power_state
