@@ -11,6 +11,7 @@ signal power_unlocked
 signal cinematik
 signal cinematik_done
 signal tile_0_5_done
+signal tile_1_5_done
 
 func _ready():
 	Events.connect("cinematik_done", _on_cinematik_done)
