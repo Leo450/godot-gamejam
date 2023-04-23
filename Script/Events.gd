@@ -12,6 +12,7 @@ signal cinematik
 signal cinematik_done
 signal tile_0_5_done
 signal tile_1_5_done
+signal easter_egg
 
 func _ready():
 	Events.connect("cinematik_done", _on_cinematik_done)
@@ -20,7 +21,6 @@ func _process(delta):
 	if !is_power_unlocked: return
 	
 	if Input.is_action_just_pressed("ui_focus_next"):
-		print("action")
 		toggle_power()
 
 func toggle_power():

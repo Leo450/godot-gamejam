@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var ACCELERATION = 500
 @export var MAX_SPEED = 80
 @export var FRICTION = 700
+@export var PLAYER_ID = 1
 
 enum {
 	MOVE,
@@ -23,6 +24,7 @@ var timer = null
 @onready var hitbox_collision_shape = $HitboxPivot/Hitbox/CollisionShape2D
 @onready var sprite_2d = $Sprite2D
 @onready var shadow = $Shadow
+@onready var audio_walking = $AudioWalking
 
 func _ready():
 	Events.connect("translate_camera", _on_translate_camera)
@@ -37,10 +39,19 @@ func _physics_process(delta):
 		CHANGE_MAP: change_map_state(delta)
 		NOP: nop_state(delta)
 		CINEMATIK: cinematik_state(delta)
+	
+	if state != CINEMATIK:
+		if velocity != Vector2.ZERO:
+			if !audio_walking.playing:
+				audio_walking.play()
+		else:
+			if audio_walking.playing:
+				audio_walking.stop()
 
 func move_state(delta):
 	input_to_velocity(delta)
 	animate(input_vector)
+	
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("ui_accept"):
@@ -148,5 +159,7 @@ func _on_cinematik():
 	Events.emit_signal("cinematik_done")
 
 func cinematik_state(delta):
+	if audio_walking.playing:
+		audio_walking.stop()
 	pass
 	
