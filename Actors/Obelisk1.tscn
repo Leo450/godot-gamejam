@@ -159,7 +159,7 @@ z_index = 1
 position = Vector2(25, 2.08165e-12)
 scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_l7wcp")
-cell_quadrant_size = 64
+rendering_quadrant_size = 64
 format = 2
 layer_0/tile_data = PackedInt32Array(65534, 720896, 8, 131070, 720896, 9, 196606, 720896, 10, 65535, 786432, 8, 131071, 786432, 9, 196607, 786432, 10, 0, 851968, 8, 65536, 851968, 9, 131072, 851968, 10)
 
@@ -168,7 +168,7 @@ z_index = 1
 position = Vector2(25, 2.08165e-12)
 scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_l7wcp")
-cell_quadrant_size = 64
+rendering_quadrant_size = 64
 format = 2
 layer_0/tile_data = PackedInt32Array(65534, 720896, 8, 131070, 720896, 9, 196606, 720896, 10, 65535, 786432, 8, 131071, 786432, 9, 196607, 786432, 10, 0, 655360, 8, 65536, 851968, 9, 131072, 851968, 10, -196607, 524288, 3, -131071, 524288, 4, -196608, 524288, 6, -196610, 524288, 6, -65538, 524288, 3, -2, 524288, 4, -131075, 524288, 0, -65539, 524288, 1)
 
@@ -183,7 +183,7 @@ hframes = 13
 shape = SubResource("CapsuleShape2D_fdhdl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Default"
 libraries = {
 "": SubResource("AnimationLibrary_5iglb")
 }
+autoplay = "Default"
